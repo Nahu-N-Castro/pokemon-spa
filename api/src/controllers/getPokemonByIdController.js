@@ -1,22 +1,19 @@
 const axios = require("axios");
+const pokemonFiltered = require("../utils/index");
 
-const getPokemonById = async (id) => {
-  const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-
-  console.log(data)
-
-  let pokemon = {
-    id: data.id,
-    name: data.name,
-    image: data.sprites.other.dream_world.front_default,
-    health: data.stats[0].base_stat,
-    attack: data.stats[1].base_stat,
-    defense: data.stats[2].base_stat,
-    speed: data.stats[5].base_stat,
-    height: data.height,
-    weight: data.weight,
-  };
-  return pokemon
+const getPokemonById = async (param) => {
+  if(isNaN(param)) {
+    const dataURL = (await axios.get(param,{timeout: 15000})).data;
+    const pokemonByURL = pokemonFiltered(dataURL);
+    return pokemonByURL;
+  } else {
+    param.toString()
+    const dataID = (
+      await axios.get(`https://pokeapi.co/api/v2/pokemon/${param}`)
+    ).data;
+    const pokemonByID = pokemonFiltered(dataID);
+    return pokemonByID;
+  }
 };
 
-module.exports = {getPokemonById}
+module.exports = { getPokemonById };
