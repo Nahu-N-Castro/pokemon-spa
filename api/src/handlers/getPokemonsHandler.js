@@ -1,12 +1,11 @@
-const {
-  createPokemonController,
-} = require("../controllers/pokemonsController");
+const { createPokemonController} = require("../controllers/createPokemonController");
 
 const createPokemonsHandler = async (req, res) => {
-  const { id, name, image, health, attack, defense, speed, weight,height } = req.body;
+  const { id, name, image, health, attack, defense, speed, weight, height } =
+    req.body;
 
   try {
-    const response = await createPokemonController(
+    const response = await createPokemon(
       id,
       name,
       image,
