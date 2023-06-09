@@ -1,3 +1,5 @@
+// const { getPokemonByParams } = require("../controllers/getPokemonByParamsController");
+
 const pokemonFiltered = (data) => {
   pokeData = {
     id: data.id,
@@ -10,7 +12,21 @@ const pokemonFiltered = (data) => {
     height: data.height,
     weight: data.weight,
   };
-  return pokeData
+  return pokeData;
 };
 
-module.exports = pokemonFiltered
+
+// const dataCleaner = async (data) => {
+//   try {
+//     const allPokemonsClean = [];
+//     for (const pokemon of data) {
+//       const pokemonInfo = await getPokemonByParams(pokemon.url);
+//       allPokemonsClean.push(pokemonInfo);
+//     }
+//     return allPokemonsClean;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
+module.exports = { pokemonFiltered };

@@ -1,4 +1,4 @@
-const { getPokemonById } = require("../controllers/getPokemonByIdController");
+const { getPokemonByParams } = require("../controllers/getPokemonByParamsController");
 
 const getDetailHandler = async (req, res) => {
   const { id } = req.params;
@@ -6,7 +6,7 @@ const getDetailHandler = async (req, res) => {
   const idNumber = parseInt(id)
 
   try {
-    const pokemonId = await getPokemonById(idNumber);
+    const pokemonId = await getPokemonByParams(idNumber);
     res.status(200).json(pokemonId);
   } catch (error) {
     if({error:error.message == "Request failed with status code 404"}){
