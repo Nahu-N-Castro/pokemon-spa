@@ -1,19 +1,19 @@
 const axios = require("axios");
 const { Pokemon } = require("../db");
-const { pokemonFiltered } = require("../utils");
+const { pokemonFiltered } = require("../utils/pokemonFiltered");
 
 const pokemonByName = async (name) => {
   try {
     const pokemonsDB = await Pokemon.findOne({
       where: {
-        name: name,
+        name: name.toLowerCase(),
       },
     });
 
     console.log(pokemonsDB)
     if (pokemonsDB == null) {
       const responseAPI = (
-        await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`)
         ).data;
         const responsePokemon = await pokemonFiltered(responseAPI);
         return responsePokemon;

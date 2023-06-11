@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { pokemonFiltered } = require("../utils/index");
+const { pokemonFiltered } = require("../utils/pokemonFiltered");
 
 const getPokemonByParams = async (param) => {
   

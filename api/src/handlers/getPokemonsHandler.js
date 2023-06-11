@@ -4,11 +4,10 @@ const pokemonByName = require("../controllers/pokemonByNameController");
 
 const getPokemonsHandler = async (req, res, next) => {
   const { name } = req.query;
-  const nameLowerCase = name.toLowerCase();
-  
+
   try {
     if (name) {
-      const responseByName = await pokemonByName(nameLowerCase);
+      const responseByName = await pokemonByName(name);
       res.status(200).json(responseByName);
     }else{
       const responseData = await getAllPokemons(req, res, next);

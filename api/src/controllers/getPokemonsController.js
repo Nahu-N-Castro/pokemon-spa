@@ -36,7 +36,7 @@ const getAllPokemons = async (req, res, next) => {
 
     res.json(allPokemons);
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
 
