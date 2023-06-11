@@ -11,6 +11,7 @@ const createPokemon = async (
   weight,
   height
 ) => {
+  name = name.toLowerCase()
   return await Pokemon.create({
     id,
     name,

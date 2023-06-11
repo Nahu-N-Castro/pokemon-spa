@@ -5,6 +5,8 @@ const pokemonsRouter = require("./pokemonsRouter");
 
 mainRouter.use("/pokemons", pokemonsRouter);
 
+// mainRouter.use("/")
+
 
 module.exports = mainRouter;
 
