@@ -15,7 +15,7 @@ const getPokemonsHandler = async (req, res, next) => {
       return responseData;
     }
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 module.exports = getPokemonsHandler;

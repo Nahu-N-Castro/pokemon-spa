@@ -12,7 +12,6 @@ const pokemonByName = async (name) => {
 
     console.log(pokemonsDB)
     if (pokemonsDB == null) {
-      console.log("API")
       const responseAPI = (
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
         ).data;

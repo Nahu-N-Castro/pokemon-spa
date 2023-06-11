@@ -7,8 +7,6 @@ const getPokemonsHandler = require("../handlers/getPokemonsHandler");
 
 pokemonsRouter.get("/", getPokemonsHandler);
 
-// pokemonsRouter.get("/", getPokemonsByNameHandler)
-
 pokemonsRouter.post("/", createPokemonsHandler)
 
 pokemonsRouter.get("/:id", getDetailHandler);
