@@ -26,8 +26,9 @@ const createPokemon = async (
     height,
     created,
   });
-  const typeDB = await Type.findAll({ where: { name:type } });
-  await pokemon.addTypes(typeDB);
+  const typeDB = await Type.findAll({ where: { name: type } });
+  
+  await pokemon.addType(typeDB);
 
 
   return pokemon;

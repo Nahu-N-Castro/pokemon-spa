@@ -17,7 +17,7 @@ const dataCleaner = async (data) => {
 
 const getAllPokemons = async (req, res, next) => {
   try {
-    const page = parseInt(req.query.page) || 2;
+    const page = parseInt(req.query.page) || 1;
     const pageSize = parseInt(req.query.pageSize) || 12;
 
     if (isNaN(page) || isNaN(pageSize) || page <= 0 || pageSize <= 0) {
