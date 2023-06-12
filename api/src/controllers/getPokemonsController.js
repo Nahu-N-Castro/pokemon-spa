@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 const { getPokemonByParams } = require("./getPokemonByParamsController");
 
 const dataCleaner = async (data) => {
@@ -28,10 +28,17 @@ const getAllPokemons = async (req, res, next) => {
     const limit = pageSize;
     const URL = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
-    const infoApiResponse = (await axios.get(URL)).data;
+    const response = await axios.get(URL);
+    const infoApiResponse = response.data.results
 
-    const pokemonsDB = await Pokemon.findAll();
-    const pokemonsApi = await dataCleaner(infoApiResponse.results);
+    const pokemonsDB = await Pokemon.findAll({include: {
+      model: Type,
+      attributes: ["name"],
+      through: {
+        attributes: []
+      },
+    as:'type'}});
+    const pokemonsApi = await dataCleaner(infoApiResponse);
     const allPokemons = [...pokemonsDB, ...pokemonsApi];
 
     res.json(allPokemons);

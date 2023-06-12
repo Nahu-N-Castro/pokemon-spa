@@ -1,4 +1,4 @@
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 
 const createPokemon = async (
   id,
@@ -9,10 +9,12 @@ const createPokemon = async (
   defense,
   speed,
   weight,
-  height
+  height,
+  created,
+  type
 ) => {
-  name = name.toLowerCase()
-  return await Pokemon.create({
+  name = name.toLowerCase();
+  const pokemon = await Pokemon.create({
     id,
     name,
     image,
@@ -22,7 +24,13 @@ const createPokemon = async (
     speed,
     weight,
     height,
+    created,
   });
+  const typeDB = await Type.findAll({ where: { name:type } });
+  await pokemon.addTypes(typeDB);
+
+
+  return pokemon;
 };
 
 module.exports = { createPokemon };

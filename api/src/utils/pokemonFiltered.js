@@ -1,4 +1,5 @@
 const pokemonFiltered = (data) => {
+  const pokemonTypes = data.types.map(typeData => typeData.type.name);
   pokeData = {
     id: data.id,
     name: data.name,
@@ -9,6 +10,8 @@ const pokemonFiltered = (data) => {
     speed: data.stats[5].base_stat,
     height: data.height,
     weight: data.weight,
+    created:false,
+    type:pokemonTypes
   };
   return pokeData;
 };

@@ -17,8 +17,10 @@ const getTypesController = async (req, res) => {
         throw new Error("Hubo un error al crear los Types");
       }
     }
+  
+    const table = await Type.findAll()
 
-    return "Se crearon los Types correctamente!";
+    return table;
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
