@@ -1,11 +1,13 @@
+import Cards from "../../components/Cards/Cards";
+import NavBar from "../../components/navBar/navBar";
 import "./home.module.css";
 
 function Home() {
   return(
 
     <div className="home">
-      <h1>this´s Home!
-      </h1>
+      <NavBar/>
+      <Cards/>
     </div>
     ) 
     

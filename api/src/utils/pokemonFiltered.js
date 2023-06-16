@@ -1,8 +1,9 @@
 const pokemonFiltered = (data) => {
-  const pokemonTypes = data.types.map(typeData => typeData.type.name);
+  const pokemonTypes = data.types.map(typeData => typeData.type.name.charAt(0).toUpperCase() + typeData.type.name.slice(1));
+  console.log(pokemonTypes)
   pokeData = {
     id: data.id,
-    name: data.name,
+    name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
     image: data.sprites.other.dream_world.front_default,
     health: data.stats[0].base_stat,
     attack: data.stats[1].base_stat,
@@ -11,7 +12,7 @@ const pokemonFiltered = (data) => {
     height: data.height,
     weight: data.weight,
     created:false,
-    type:pokemonTypes
+    type: pokemonTypes
   };
   return pokeData;
 };

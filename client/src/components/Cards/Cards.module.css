@@ -1,0 +1,7 @@
+.divMain{
+  background-color: var(--background-primary);
+  height: 93vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
