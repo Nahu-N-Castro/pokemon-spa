@@ -9,8 +9,7 @@ const pokemonByName = async (name) => {
         name: name.toLowerCase(),
       },
     });
-
-    console.log(pokemonsDB)
+    
     if (pokemonsDB == null) {
       const responseAPI = (
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`)

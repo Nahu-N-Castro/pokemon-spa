@@ -1,6 +1,5 @@
 const pokemonFiltered = (data) => {
   const pokemonTypes = data.types.map(typeData => typeData.type.name.charAt(0).toUpperCase() + typeData.type.name.slice(1));
-  console.log(pokemonTypes)
   pokeData = {
     id: data.id,
     name: data.name.charAt(0).toUpperCase() + data.name.slice(1),

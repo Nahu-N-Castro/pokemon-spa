@@ -12,7 +12,6 @@ const getPokemonByParams = async (param) => {
   }
   const data = response.data;
   const pokemon = pokemonFiltered(data);
-  console.log(pokemon)
   return pokemon;
 };
 
