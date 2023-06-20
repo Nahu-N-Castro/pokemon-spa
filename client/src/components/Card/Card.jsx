@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import style from "./Card.module.css";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 
-const Card = ({ id, name, type, image }) => {
+const Card = ({pokemon}) => {
+
+  const {id, name, type, image } = pokemon
+  
   return (
     <div className={style.content}>
       <Link className={style.link} to={`/detail/${id}`}>
@@ -26,11 +29,5 @@ const Card = ({ id, name, type, image }) => {
   );
 };
 
-Card.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  type: PropTypes.array,
-  image: PropTypes.string,
-};
 
-export default Card;[]
+export default Card;
