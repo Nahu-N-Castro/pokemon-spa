@@ -1,11 +1,11 @@
 .content{
   width: 250px;
-  height: 400px;
+  height: 375px;
   border-radius: 18px;
   background-color: var(--container-primary);
   box-shadow: -5px 15px 16px 0px rgba(0,0,0,0.3); 
-  padding: 5px 0px 10px;
-  margin: 20px;
+  padding: 3px 0px 10px;
+  margin: 15px;
   justify-content: space-between;
   position: relative;
   overflow: hidden;
@@ -42,14 +42,37 @@
   justify-content: space-around;
 }
 .type{
-  top: 350px;
+  top: 330px;
   font-weight: 750;
   border-radius: 5px;
-  position: relative;
+  position: absolute;
   text-align: center;
   width: 100px;
   font-weight: 450;
   color: rgba(0, 0, 0, 0.6);
+}
+
+.name{
+  font-weight: 750;
+  background-color:var(--container-circle);
+  text-align: center;
+  color: rgb(61,64,63);
+  width: 150px;
+  top: 0;
+  right:0;
+  position:absolute;
+  padding: 6px;
+}
+
+.circle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background:var(--container-circle);
+  clip-path: circle(35% at center);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .type-bug {
@@ -78,7 +101,7 @@
 }
 
 .type-fighting {
-  background-color: #C03028;
+  background-color: #f87171;
   font-weight: 550;
 }
 
@@ -140,27 +163,4 @@
 .type-water {
   background-color: #9DB7F5;
   font-weight: 550;
-}
-
-.name{
-  font-weight: 750;
-  background-color:white;
-  text-align: center;
-  color: rgb(61,64,63);
-  width: 150px;
-  top: 0;
-  right:0;
-  position:absolute;
-  padding: 6px;
-}
-
-.circle{
-  position: absolute;
-  top: 0;
-  left: 0;
-  background:var(--container-circle);
-  clip-path: circle(35% at center);
-  width: 100%;
-  height: 100%;
-  z-index: 0;
 }

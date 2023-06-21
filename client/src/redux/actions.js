@@ -6,9 +6,9 @@ export const GET_POKEMON_DETAIL = "GET_POKEMON_DETAIL"
 export const GET_POKEMON_FINDED = "GET_POKEMON_FINDED"
 export const DELETE_POKEMON_DETAIL = "DELETE_POKEMON_DETAIL"
 
-export function getPokemons(){
+export function getPokemons(page){
   return async function(dispatch){
-    const response = await axios("http://localhost:3001/pokemons")
+    const response = await axios(`http://localhost:3001/pokemons?page=${page}&pageSize=12`)
     return dispatch({
       type:"GET_POKEMONS",
       payload: response.data

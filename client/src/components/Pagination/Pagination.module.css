@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-primary);
+  height: 10vh;
+}
+
+.pagination-page button {
+  font-size: 12px;
+  padding: 5px 10px;
+  margin: 0 2px;
+  background-color: var(--detail-secundary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.pagination-page button.active {
+  background-color:var(--detail-tertiary);
+  font-size: 16px;
+  font-weight: bold;
+  
+}

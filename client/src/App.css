@@ -1,8 +1,11 @@
 :root{
-  --background-primary: #f1f5f9;
-  --container-primary: #cbd5e1;
-  --container-circle: #e2e8f0;
- 
+  --background-primary: #fff7ed;
+  --container-primary: #ffedd5;
+  --container-circle: #fed7aa;
+  --detail-primary: #C54215;
+  --detail-secundary: #fae3dc;
+  --detail-tertiary: #FFEB62;
+  --letters-black:#312C2C;
 }
 
 

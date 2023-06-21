@@ -1,7 +1,7 @@
 .div{
-  height: 7vh;
+  height: 5vh;
   display: flex;
-  background: #C54215;
+  background: var(--detail-primary);
   align-items: center;
   justify-content: space-around;
 }

@@ -1,6 +1,6 @@
 .divMain{
   background-color: var(--background-primary);
-  height: 93vh;
+  height: 85vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
