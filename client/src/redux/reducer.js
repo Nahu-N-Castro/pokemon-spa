@@ -1,4 +1,9 @@
-import { DELETE_POKEMON_DETAIL, GET_POKEMONS, GET_POKEMON_DETAIL } from "./actions";
+import {
+  DELETE_POKEMON_DETAIL,
+  GET_POKEMONS,
+  GET_POKEMON_DETAIL,
+  GET_POKEMON_FINDED,
+} from "./actions";
 
 const initialState = {
   allPokemons: [],
@@ -20,11 +25,16 @@ function rootReducer(state = initialState, action) {
         pokemonDetail: action.payload,
       };
 
+    case GET_POKEMON_FINDED:
+      return {
+        ...state,
+        allPokemons:[action.payload],
+      };
     case DELETE_POKEMON_DETAIL:
-      return{
+      return {
         ...state,
         pokemonDetail: {},
-      }
+      };
 
     default:
       return state;

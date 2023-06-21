@@ -2,10 +2,9 @@
 import style from "./Card.module.css";
 import { Link } from "react-router-dom";
 
-const Card = ({pokemon}) => {
+const Card = ({ pokemon }) => {
+  const { id, name, type, image } = pokemon;
 
-  const {id, name, type, image } = pokemon
-  
   return (
     <div className={style.content}>
       <Link className={style.link} to={`/detail/${id}`}>
@@ -15,19 +14,19 @@ const Card = ({pokemon}) => {
       </Link>
       <h1 className={style.id}>#{id}</h1>
       <div className={style.types}>
-      {type &&
-        type.map((typeValue, index) => (
-          <h2
-            className={`${style.type} ${style[`type-${typeValue.toLowerCase()}`]}`}
-            key={index}
-          >
-            {typeValue}
-          </h2>
-        ))}
+        {type &&
+          type.map((typeValue, index) => (
+            <h2
+              className={`${style.type} ${
+                style[`type-${typeValue.toLowerCase()}`]
+              }`}
+              key={index}>
+              {typeValue}
+            </h2>
+          ))}
       </div>
     </div>
   );
 };
-
 
 export default Card;

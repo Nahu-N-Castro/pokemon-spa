@@ -70,7 +70,8 @@ const Detail = () => {
           </div>
           <div className={style.statics2}>
             {pokemon.type &&
-              pokemon.type.map((type, index) => <h1 key={index}>{type}</h1>)}
+              pokemon.type.map((type, index) => <h1 key={index}> {type} </h1>)
+            }
           </div>
         </div>
       </div>
