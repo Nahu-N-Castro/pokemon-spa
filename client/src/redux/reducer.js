@@ -1,6 +1,10 @@
-import { GET_POKEMONS, GET_POKEMONS_BY_ID } from "./actions";
+import { DELETE_POKEMON_DETAIL, GET_POKEMONS, GET_POKEMON_DETAIL } from "./actions";
 
-const initialState = { allPokemons: [], allPokemonsCopy: []};
+const initialState = {
+  allPokemons: [],
+  allPokemonsCopy: [],
+  pokemonDetail: {},
+};
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -8,15 +12,19 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allPokemons: action.payload,
-        allPokemonsCopy: action.payload
+        allPokemonsCopy: action.payload,
       };
-    case GET_POKEMONS_BY_ID:
+    case GET_POKEMON_DETAIL:
       return {
         ...state,
-        allPokemons: action.payload,
-        allPokemonsCopy: action.payload
+        pokemonDetail: action.payload,
       };
 
+    case DELETE_POKEMON_DETAIL:
+      return{
+        ...state,
+        pokemonDetail: {},
+      }
 
     default:
       return state;

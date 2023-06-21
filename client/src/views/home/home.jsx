@@ -13,7 +13,7 @@ function Home() {
   const allPokemons = useSelector((state) => state.allPokemons);
 
   useEffect(() => {
-    // setLoading(false);
+    // setLoading(false)
     dispatch(getPokemons());
   }, [dispatch]);
 

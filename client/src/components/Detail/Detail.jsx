@@ -1,31 +1,28 @@
-import axios from "axios";
 import style from "./Detail.module.css";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import heart from "../../img/heart.svg";
 import attack from "../../img/attack.svg";
 import defense from "../../img/defense.svg";
 import height from "../../img/height.svg";
 import speed from "../../img/speed.svg";
 import weight from "../../img/weight.svg";
+import { deletePokemonDetail, getPokemonDetail } from "../../redux/actions";
 
 const Detail = () => {
-  const [pokemon, SetPokemon] = useState({});
-
   const { id } = useParams();
 
+  const dispatch = useDispatch();
+
+  const pokemon = useSelector((state) => state.pokemonDetail);
+
   useEffect(() => {
-    axios(`http://localhost:3001/pokemons/${id}`).then(({ data }) => {
-      if (data.name) {
-        SetPokemon(data);
-      } else {
-        window.alert("No hay personajes con ese ID");
-      }
-    });
-    return SetPokemon({});
-  }, [id]);
-
-
+    dispatch(getPokemonDetail(id));
+    return () => {
+      dispatch(deletePokemonDetail());
+    };
+  }, [dispatch, id]);
 
   return (
     <div className={style.detailPage}>
@@ -72,10 +69,8 @@ const Detail = () => {
             <h1>{pokemon.weight && pokemon.weight}</h1>
           </div>
           <div className={style.statics2}>
-            {pokemon.type && pokemon.type.map((type, index) => (
-              <h1 key={index}>{type}</h1>
-              ))
-            }
+            {pokemon.type &&
+              pokemon.type.map((type, index) => <h1 key={index}>{type}</h1>)}
           </div>
         </div>
       </div>
