@@ -5,8 +5,8 @@
 .buttonNav{
   padding: 10px;
   margin-left: 15px;
-  background-color: #FFEB62;
-  color: #312C2C;
+  background-color: var(--container-secundary);
+  color: #fafafa;
   font-weight: bold;
   border-radius: 16px;
   border: none;
@@ -21,26 +21,24 @@
   
 }
 .buttonNav:hover{
-  background-color:rgb(252, 240, 164);
+  background-color:var(--detail-tertiary);
   box-shadow: 0px 0px 40px 5px rgba(255, 255, 255, 0.3);  ;
 }
 .inputNav{
-  width: 200px;
+  width: 300px;
   height: 35px;
   padding: 10px;
   border-radius: 16px;
-  background-color: #FFEB62;
+  background-color: #fafafa;
   transition: 0.5s;
-  color:#312C2C;
-  border: 1px solid #FFEB62;
-  font-weight: bold;
+  border: 1px solid #fafafa;
 
 }
 .inputNav:focus{
   
   color:#312C2C;
   outline: none;
-  width: 250px;
+  width: 350px;
   height: 35px;
   padding: 10px;
   border-radius: 16px;

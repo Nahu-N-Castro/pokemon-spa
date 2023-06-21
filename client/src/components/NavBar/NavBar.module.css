@@ -1,15 +1,29 @@
 .div{
-  height: 5vh;
+  height: 7vh;
   display: flex;
-  background: var(--detail-primary);
+  background: var(--background-primary);
   align-items: center;
   justify-content: space-around;
 }
 
 .navButtons{
-  font-family: 'Clash Display';
   text-decoration: none;
   list-style: none;
-  font-size: 30px;
-  color:white
+  font-size: 20px;
+  font-weight: 900;
+  color:var(--letters-black);
+  font-weight: bolder;
+  transition: .1s;
 } 
+.navButtons:hover{
+  text-decoration: none;
+  list-style: none;
+  font-size: 20px;
+  font-weight: 900;
+  color:var(--detail-tertiary);
+  font-weight: bolder;
+} 
+
+.div img{
+  height: 7vh;
+}

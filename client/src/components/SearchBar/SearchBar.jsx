@@ -21,7 +21,7 @@ const SearchBar=()=>{
     return (
         <div className={style.wrappedBar}>
             <form onSubmit={handleOnSubmit}>
-                <input className={style.inputNav} placeholder="Search Name or ID..." type='search'onChange={handleOnSearch} /> 
+                <input className={style.inputNav} placeholder="Search Pokémon" type='search'onChange={handleOnSearch} /> 
                 <button className={style.buttonNav}type='submit'>Search</button> 
             </form>
         </div>

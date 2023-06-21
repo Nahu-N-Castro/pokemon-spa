@@ -10,10 +10,9 @@ function Landing() {
         <div className={style.circle2}></div>
         <div className={style.circle3}></div>
         <div className={style.text}>
-          <h1>Pokémon</h1>
-          <h1>SPA</h1>
-          <h1>My First Page</h1>
-          <h5>Henrys individual integrative project </h5>
+          <h1>JOIN THE</h1>
+          <h1>POKEDEX</h1>
+          <h5>Proyect Integrator | Nahuel Castro </h5>
           <NavLink className={style.NavLink} activeStyle={style.NavLink.active} to='/home'>Sign In</NavLink>
         </div>
         <img src={imglanding} alt="POKEMON SPA" />

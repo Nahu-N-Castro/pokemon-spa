@@ -1,22 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Montserrat+Italic:wght@400;900&display=swap');
+
+
+
 :root{
-  --background-primary: #fff7ed;
-  --container-primary: #ffedd5;
-  --container-circle: #fed7aa;
-  --detail-primary: #C54215;
-  --detail-secundary: #fae3dc;
-  --detail-tertiary: #FFEB62;
-  --letters-black:#312C2C;
+  --background-primary:#BDE5D1;
+  --background-secundary:#3266B0;
+  --container-primary: #DCEDE0;
+  --container-secundary:#84C6A3;
+  --detail-primary: #84c6a357;
+  --detail-secundary: #67C196;
+  --detail-tertiary: #FFE100;
+  --letters-black:#448F69;
 }
 
-
 *{
+  font-family: 'Montserrat', sans-serif;
   padding:0px;
   margin: 0px;
-
 }
 
 .App{
-  background-image: url('https://wallpapercave.com/wp/wp6737130.jpg') ;
+  font-family: 'Montserrat', sans-serif;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

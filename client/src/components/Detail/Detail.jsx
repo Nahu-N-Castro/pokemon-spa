@@ -1,5 +1,5 @@
 import style from "./Detail.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import heart from "../../img/heart.svg";
@@ -9,6 +9,7 @@ import height from "../../img/height.svg";
 import speed from "../../img/speed.svg";
 import weight from "../../img/weight.svg";
 import { deletePokemonDetail, getPokemonDetail } from "../../redux/actions";
+import back from "../../img/back.svg";
 
 const Detail = () => {
   const { id } = useParams();
@@ -26,6 +27,9 @@ const Detail = () => {
 
   return (
     <div className={style.detailPage}>
+      <NavLink className={style.back} to="/home">
+        <img src={back} alt="back" />
+      </NavLink>
       <div className={style.content}>
         <div className={style.circle}></div>
         <img
@@ -70,8 +74,7 @@ const Detail = () => {
           </div>
           <div className={style.statics2}>
             {pokemon.type &&
-              pokemon.type.map((type, index) => <h1 key={index}> {type} </h1>)
-            }
+              pokemon.type.map((type, index) => <h1 key={index}> {type} </h1>)}
           </div>
         </div>
       </div>
