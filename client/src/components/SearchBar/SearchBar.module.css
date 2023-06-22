@@ -7,15 +7,14 @@
   margin-left: 15px;
   background-color: var(--container-secundary);
   color: #fafafa;
-  font-weight: bold;
-  border-radius: 16px;
+  border-radius: 50px;
   border: none;
   align-items: center;
   width: 75px;
   height: 40px;
   justify-content: center;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   transition: .3s;
   
   
@@ -26,20 +25,19 @@
 }
 .inputNav{
   width: 300px;
-  height: 35px;
+  height: 30px;
   padding: 10px;
-  border-radius: 16px;
+  border-radius: 50px;
   background-color: #fafafa;
   transition: 0.5s;
   border: 1px solid #fafafa;
 
 }
 .inputNav:focus{
-  
   color:#312C2C;
   outline: none;
   width: 350px;
-  height: 35px;
+  height: 30px;
   padding: 10px;
   border-radius: 16px;
   
