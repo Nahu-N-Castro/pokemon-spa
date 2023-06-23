@@ -16,13 +16,9 @@ export function getPokemons(page){
   }
 }
 
-export function getPokemonsByName(name){
-  return async function(dispatch){
-    const response = await axios(`http://localhost:3001/pokemons?name=${name}`)
-    return dispatch({
-      type:"GET_POKEMONS_BY_NAME",
-      payload: response.data
-    })
+export function getPokemonsType(){
+  return async function(){
+    await axios.get("http://localhost:3001/types")
   }
 }
 

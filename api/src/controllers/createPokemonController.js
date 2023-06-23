@@ -25,11 +25,11 @@ const createPokemon = async (
     weight,
     height,
     created,
+    type,
   });
   const typeDB = await Type.findAll({ where: { name: type } });
-  
-  await pokemon.addType(typeDB);
 
+  await pokemon.addType(typeDB);
 
   return pokemon;
 };

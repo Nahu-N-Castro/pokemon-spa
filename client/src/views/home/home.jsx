@@ -18,8 +18,6 @@ function Home() {
     setPage(newPage);
   };
 
-
-
   const allPokemons = useSelector((state) => state.allPokemons);
 
   useEffect(() => {
@@ -31,10 +29,7 @@ function Home() {
     <div className="home">
       <NavBar />
       <Cards allPokemons={allPokemons} />
-      <Pagination
-        page={page}
-        handlePageChange={handlePageChange}
-      />
+      <Pagination page={page} handlePageChange={handlePageChange} />
     </div>
   );
 }

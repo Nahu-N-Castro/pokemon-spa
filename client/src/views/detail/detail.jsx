@@ -1,4 +1,4 @@
-import style from "./Detail.module.css";
+import style from "./detail.module.css";
 import { useParams, NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

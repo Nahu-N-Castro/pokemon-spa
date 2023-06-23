@@ -5,14 +5,15 @@ module.exports = (sequelize) => {
     "Pokemon",
     {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue: DataTypes.UUIDV4
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        
       },
       image: {
         type: DataTypes.STRING,
@@ -45,7 +46,7 @@ module.exports = (sequelize) => {
       created: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-      }
+      },
       
     },
     {

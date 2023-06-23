@@ -17,8 +17,8 @@ const getTypesController = async (req, res) => {
         throw new Error("Hubo un error al crear los Types");
       }
     }
-  
-    const table = await Type.findAll()
+
+    const table = await Type.findAll();
 
     return table;
   } catch (error) {
@@ -27,4 +27,3 @@ const getTypesController = async (req, res) => {
 };
 
 module.exports = getTypesController;
-

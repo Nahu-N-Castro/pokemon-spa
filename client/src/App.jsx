@@ -3,6 +3,8 @@ import "./App.css";
 import Home from "./views/home/home";
 import Landing from "./views/landing/landing";
 import Detail from "./views/detail/detail";
+import Create from "./views/create/create";
+
 
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
         <Route path="/" element={<Landing/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:id" element={<Detail/>} />
+        <Route path="/create" element={<Create/>} />
 
       </Routes>
     </div>
