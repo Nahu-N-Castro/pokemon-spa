@@ -8,7 +8,7 @@ const Card = ({ pokemon }) => {
   return (
     <div className={style.content}>
       <Link className={style.link} to={`/detail/${id}`}>
-        <h2 className={style.name}>{name}</h2>
+        <h2 className={style.name}>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
         <img className={style.image} src={image} alt="" />
         <div className={style.circle}></div>
       </Link>

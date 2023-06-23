@@ -24,22 +24,47 @@ const getAllPokemons = async (req, res, next) => {
       throw new Error("Invalid page or pageSize");
     }
 
-    const offset = (page - 1) * pageSize;
-    const limit = pageSize;
-    const URL = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
-
-    const response = await axios.get(URL);
-    const infoApiResponse = response.data.results
-
     const pokemonsDB = await Pokemon.findAll({include: {
       model: Type,
       attributes: ["name"],
       through: {
         attributes: []
       },
-    as:'type'}});
+      as:'type'}});
+      
+      const counterPokemonsDB = pokemonsDB.length
+      
+      console.log("POKEMONSDB: " + pokemonsDB.length)
+    
+      let limit
+      let offset
+
+      if (page == 1) {
+        offset = (page - 1) * pageSize;
+        limit = pageSize - counterPokemonsDB
+        
+      } else {
+        offset = ((page - 1) * pageSize) - counterPokemonsDB
+        limit = pageSize
+      }
+
+      const URL = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+
+    const response = await axios.get(URL);
+    const infoApiResponse = response.data.results
+
+
     const pokemonsApi = await dataCleaner(infoApiResponse);
-    const allPokemons = [...pokemonsDB, ...pokemonsApi];
+
+      let allPokemons
+
+    if (page == 1) {
+      allPokemons = [...pokemonsDB, ...pokemonsApi];
+      
+    } else {
+      allPokemons = [...pokemonsApi]
+    }
+
 
     res.json(allPokemons);
   } catch (error) {

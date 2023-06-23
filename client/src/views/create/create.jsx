@@ -212,7 +212,7 @@ const Create = () => {
               id="weight"
               name="weight"
               min="1"
-              max="100"
+              max="1000"
               step="1"
               value={statics.weight}
               onChange={handleStaticsChange}

@@ -5,7 +5,8 @@ const validate = (statics) => {
   const REGEX = {
     name: /^[A-Za-z]{1,30}$/,
     image: /^(https?:\/\/)?\S+\.(jpg|jpeg|png|gif)$/i,
-    statics: /^(?:[1-9][0-9]{0,2}|1000)$/,
+    statics: /^(?:[1-9][0-9]{0,2}|100)$/,
+    weight: /^(?:[1-9][0-9]{0,2}|1000)$/,
   };
 
   const allowedTypes = [
@@ -43,27 +44,27 @@ const validate = (statics) => {
   }
   if (!REGEX.statics.test(statics.health)) {
     errors.health =
-      "El número debe ser entre 1 y 1000 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
+      "El número debe ser entre 1 y 100 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
   }
   if (!REGEX.statics.test(statics.attack)) {
     errors.attack =
-      "El número debe ser entre 1 y 1000 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
+      "El número debe ser entre 1 y 100 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
   }
   if (!REGEX.statics.test(statics.defense)) {
     errors.defense =
-      "El número debe ser entre 1 y 1000 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
+      "El número debe ser entre 1 y 100 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
   }
   if (!REGEX.statics.test(statics.speed)) {
     errors.speed =
-      "El número debe ser entre 1 y 1000 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
+      "El número debe ser entre 1 y 100 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
   }
-  if (!REGEX.statics.test(statics.weight)) {
+  if (!REGEX.weight.test(statics.weight)) {
     errors.weight =
       "El número debe ser entre 1 y 1000 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
   }
   if (!REGEX.statics.test(statics.height)) {
     errors.height =
-      "El número debe ser entre 1 y 1000 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
+      "El número debe ser entre 1 y 100 inclusive. Solo se permiten números enteros, sin decimales ni signos.";
   }
   if (!allowedTypes.includes(statics.type)) {
     errors.type = "El tipo de pokémon es invaido";

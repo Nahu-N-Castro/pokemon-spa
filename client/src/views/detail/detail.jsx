@@ -39,7 +39,7 @@ const Detail = () => {
         />
         <div className={style.about}>
           <h1>About</h1>
-          <h2>{pokemon.name && pokemon.name}</h2>
+          <h2>{pokemon.name && pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
         </div>
         <div className={style.statics}>
           <div className={style.statics1}>
