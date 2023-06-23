@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import imageMe from "../../img/me-byn.jpg";
 import back from "../../img/back.svg";
+import github from "../../img/github.svg";
+import linkedin from "../../img/linkedin.svg";
 import style from "./about.module.css";
 
 const About = () => {
@@ -19,10 +21,18 @@ const About = () => {
           <p>
             I am a fronted web developer. I can provide clean code and pixel
             perfect design. I also make the website more & more interactive with
-            web animations. I can provide clean code and pixel perfect desing.
-            I responsive design makes your website accesible to all users,
+            web animations. I can provide clean code and pixel perfect desing. I
+            responsive design makes your website accesible to all users,
             regardless of their device.
           </p>
+          <div>
+            <a href="https://github.com/Nahu-N-Castro">
+              <img className={style.git} src={github} alt="github" />
+            </a>
+            <a href="https://www.linkedin.com/in/nahuel-castro-8a07bb202/">
+              <img className={style.linkedin} src={linkedin} alt="linkedin" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
