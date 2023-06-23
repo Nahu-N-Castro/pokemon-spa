@@ -5,6 +5,7 @@ import {
   GET_POKEMON_FINDED,
   FILTER_POKEMONS,
   ORDER_POKEMONS,
+  DELETE_GET_POKEMON,
 
 } from "./actions";
 
@@ -38,6 +39,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         pokemonDetail: {},
       };
+    case DELETE_GET_POKEMON:
+      return {
+        ...state,
+        allPokemons: [],
+      };
 
       case FILTER_POKEMONS:
         return {
@@ -58,7 +64,7 @@ function rootReducer(state = initialState, action) {
         action.payload === "A"
         ? [...state.allPokemons].sort((a, b) => a.name.localeCompare(b.name))
         : action.payload === "D" ? [...state.allPokemons].sort((a, b) => b.name.localeCompare(a.name))
-        : state.allPokemonsCopy,
+        : state.allPokemons,
       };
     default:
       return state;

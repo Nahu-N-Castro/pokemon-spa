@@ -4,7 +4,7 @@ import NavBar from "../../components/navBar/navBar";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getPokemons } from "../../redux/actions";
+import { deleteGetPokemon, getPokemons } from "../../redux/actions";
 
 import style from "./home.module.css";
 
@@ -23,9 +23,12 @@ function Home() {
   const allPokemons = useSelector((state) => state.allPokemons);
 
   useEffect(() => {
-    // setLoading(false)
     dispatch(getPokemons(page));
-  }, [dispatch, page]);
+    return () => {
+      dispatch(deleteGetPokemon())
+    }
+  }, [dispatch, page]
+  );
 
   return (
     <div className={style.home}>

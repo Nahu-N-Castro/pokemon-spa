@@ -7,6 +7,8 @@ export const GET_POKEMON_FINDED = "GET_POKEMON_FINDED"
 export const DELETE_POKEMON_DETAIL = "DELETE_POKEMON_DETAIL"
 export const FILTER_POKEMONS = "FILTER_POKEMONS"
 export const ORDER_POKEMONS = "ORDER_POKEMONS"
+export const DELETE_GET_POKEMON = "DELETE_GET_POKEMON"
+
 
 export function getPokemons(page){
   return async function(dispatch){
@@ -38,6 +40,14 @@ export function deletePokemonDetail(){
   return function(dispatch){
     return dispatch({
       type:"DELETE_POKEMON_DETAIL",
+    })
+  }
+}
+
+export function deleteGetPokemon(){
+  return function(dispatch){
+    return dispatch({
+      type:"DELETE_GET_POKEMON",
     })
   }
 }
