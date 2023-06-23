@@ -3,13 +3,12 @@
   align-items: center;
   justify-content: center;
   background-color: var(--background-primary);
-  height: 8vh;
-
+  height: 6vh;
 }
 
 .pagination-page button {
-  width: 45px;
-  height: 35px;
+  width: 35px;
+  height: 30px;
   font-size: 12px;
   padding: 5px 10px;
   margin: 0 2px;
@@ -21,11 +20,12 @@
 }
 
 .pagination-page button.active {
-  width: 58px;
-  height: 45px;
+  width: 40px;
+  height: 35px;
   background-color: var(--background-secundary);
   color: var(--detail-tertiary);
-  font-size: 18px;
   font-weight: bold;
-
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
 }

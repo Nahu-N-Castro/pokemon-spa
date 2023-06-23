@@ -103,7 +103,7 @@ const Create = () => {
 
           <div className={style.inputbox}>
             <label htmlFor="type">Type </label>
-            <select id="typePokemon" name="type" onChange={handleStaticsChange}>
+            <select name="type" onChange={handleStaticsChange}>
               <option value="">Select</option>
               <option value="normal">Normal</option>
               <option value="fighting">Fighting</option>

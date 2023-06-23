@@ -11,6 +11,7 @@
   overflow: hidden;
   transition: .2s;
 }
+
 .content:hover{
   width: 250px;
   height: 375px;
@@ -56,6 +57,7 @@
   align-items: center;
   justify-content: space-around;
 }
+
 .type{
   top: 330px;
   font-weight: 750;

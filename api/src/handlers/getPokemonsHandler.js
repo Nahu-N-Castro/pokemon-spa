@@ -1,7 +1,6 @@
 const { getAllPokemons } = require("../controllers/getPokemonsController");
 const pokemonByName = require("../controllers/pokemonByNameController");
 
-
 const getPokemonsHandler = async (req, res, next) => {
   const { name } = req.query;
 
@@ -9,7 +8,7 @@ const getPokemonsHandler = async (req, res, next) => {
     if (name) {
       const responseByName = await pokemonByName(name);
       res.status(200).json(responseByName);
-    }else{
+    } else {
       const responseData = await getAllPokemons(req, res, next);
       return responseData;
     }

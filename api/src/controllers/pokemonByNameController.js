@@ -9,17 +9,19 @@ const pokemonByName = async (name) => {
         name: name.toLowerCase(),
       },
     });
-    
+
     if (pokemonsDB == null) {
       const responseAPI = (
-        await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`)
-        ).data;
-        const responsePokemon = await pokemonFiltered(responseAPI);
-        return responsePokemon;
-      } else {
-        return pokemonsDB;
-      }
-    } catch (error) {
+        await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
+        )
+      ).data;
+      const responsePokemon = await pokemonFiltered(responseAPI);
+      return responsePokemon;
+    } else {
+      return pokemonsDB;
+    }
+  } catch (error) {
     throw Error(`Error al buscar el Pokémon: ${name}`);
   }
 };

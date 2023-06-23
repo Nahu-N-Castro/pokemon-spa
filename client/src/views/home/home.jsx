@@ -9,6 +9,7 @@ import { getPokemons } from "../../redux/actions";
 import style from "./home.module.css";
 
 import Pagination from "../../components/Pagination/Pagination";
+import FilterCards from "../../components/Filter/Filter";
 
 function Home() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function Home() {
   return (
     <div className={style.home}>
       <NavBar />
+      <FilterCards/>
       <Cards allPokemons={allPokemons} />
       <Pagination
         page={page}

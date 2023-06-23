@@ -5,6 +5,8 @@ export const GET_POKEMONS_BY_NAME = "GET_POKEMONS_BY_NAME"
 export const GET_POKEMON_DETAIL = "GET_POKEMON_DETAIL"
 export const GET_POKEMON_FINDED = "GET_POKEMON_FINDED"
 export const DELETE_POKEMON_DETAIL = "DELETE_POKEMON_DETAIL"
+export const FILTER_POKEMONS = "FILTER_POKEMONS"
+export const ORDER_POKEMONS = "ORDER_POKEMONS"
 
 export function getPokemons(page){
   return async function(dispatch){
@@ -52,5 +54,19 @@ export function getPokemonFinded(value){
       type: "GET_POKEMON_FINDED",
       payload: response.data
     })
+  }
+}
+
+export const filterPokemons = (type) => {
+  return{
+      type: "FILTER_POKEMONS",
+      payload:type
+  }
+}
+
+export const orderPokemons = (order) => {
+  return{
+      type:"ORDER_POKEMONS" ,
+      payload:order
   }
 }

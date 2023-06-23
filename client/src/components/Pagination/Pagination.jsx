@@ -14,8 +14,11 @@ const Pagination = ({ page, handlePageChange }) => {
     const buttons = [];
 
     const maxButtons = 5;
+
     const middleButtonIndex = Math.floor(maxButtons / 2);
+
     let startPage = Math.max(1, page - middleButtonIndex);
+    
     const endPage = Math.min(startPage + maxButtons - 1, totalPages);
 
     if (endPage - startPage + 1 < maxButtons) {

@@ -2,9 +2,9 @@
 import style from "./Cards.module.css";
 import Card from "../Card/Card";
 
-
 const Cards = ({ allPokemons }) => {
   const pokemonsList = allPokemons;
+
   return (
     <div className={style.divMain}>
       {pokemonsList?.map((pokemon) => {
