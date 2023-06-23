@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getPokemons } from "../../redux/actions";
 
-import "./home.module.css";
+import style from "./home.module.css";
+
 import Pagination from "../../components/Pagination/Pagination";
 
 function Home() {
@@ -26,10 +27,13 @@ function Home() {
   }, [dispatch, page]);
 
   return (
-    <div className="home">
+    <div className={style.home}>
       <NavBar />
       <Cards allPokemons={allPokemons} />
-      <Pagination page={page} handlePageChange={handlePageChange} />
+      <Pagination
+        page={page}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 }
