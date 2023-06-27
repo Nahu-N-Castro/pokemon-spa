@@ -6,13 +6,16 @@ import {
   FILTER_POKEMONS,
   ORDER_POKEMONS,
   DELETE_GET_POKEMON,
-
+  CHANGE_SOURCE_POKEMONS,
+  CHANGE_POKEMONS,
 } from "./actions";
 
 const initialState = {
   allPokemons: [],
   allPokemonsCopy: [],
+  allPokemonsCopy2: [],
   pokemonDetail: {},
+  source: "API",
 };
 
 function rootReducer(state = initialState, action) {
@@ -22,6 +25,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         allPokemons: action.payload,
         allPokemonsCopy: action.payload,
+        allPokemonsCopy2: action.payload,
       };
     case GET_POKEMON_DETAIL:
       return {
@@ -45,27 +49,63 @@ function rootReducer(state = initialState, action) {
         allPokemons: [],
       };
 
-      case FILTER_POKEMONS:
-        return {
-          ...state,
-          allPokemons: action.payload !== ""
-            ? state.allPokemons.filter((poke) =>
-                poke.type[0] === action.payload ||
-                poke.type[1] === action.payload ||
-                poke.type[2] === action.payload
-              )
-            : state.allPokemonsCopy,
-        };
-
     case ORDER_POKEMONS:
       return {
         ...state,
         allPokemons:
-        action.payload === "A"
-        ? [...state.allPokemons].sort((a, b) => a.name.localeCompare(b.name))
-        : action.payload === "D" ? [...state.allPokemons].sort((a, b) => b.name.localeCompare(a.name))
-        : state.allPokemons,
+          action.payload === "A"
+            ? [...state.allPokemons]?.sort((a, b) =>
+                a.name && b.name ? a.name.localeCompare(b.name) : ""
+              )
+            : action.payload === "D"
+            ? [...state.allPokemons]?.sort((a, b) =>
+                a.name && b.name ? b.name.localeCompare(a.name) : ""
+              )
+            : [...state.allPokemonsCopy],
       };
+
+    case FILTER_POKEMONS:
+      return {
+        ...state,
+        allPokemons:
+          action.payload !== ""
+            ? state.allPokemons.filter(
+                (poke) =>
+                  poke.type && poke.type.some((type) => type === action.payload)
+              )
+            : state.allPokemons,
+      };
+
+    case CHANGE_SOURCE_POKEMONS:
+      return {
+        ...state,
+        source: action.payload,
+        allPokemons:
+          action.payload === "API"
+            ? [...state.allPokemonsCopy2].filter(
+                (pokemons) => pokemons.created === false
+              )
+            : [...state.allPokemonsCopy2].filter(
+                (pokemons) => pokemons.created === true
+              ),
+        allPokemonsCopy:
+          action.payload === "API"
+            ? [...state.allPokemonsCopy2].filter(
+                (pokemons) => pokemons.created === false
+              )
+            : [...state.allPokemonsCopy2].filter(
+                (pokemons) => pokemons.created === true
+              ),
+      };
+
+    case CHANGE_POKEMONS:
+      return {
+        ...state,
+        allPokemons: action.payload,
+        allPokemonsCopy: action.payload,
+        allPokemonsCopy2: action.payload,
+      };
+
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import style from "./create.module.css";
 import heart from "../../img/heart.svg";
 import attack from "../../img/attack.svg";
@@ -8,14 +8,12 @@ import speed from "../../img/speed.svg";
 import weight from "../../img/weight.svg";
 import unknow from "../../img/unknow.png";
 import back from "../../img/back.svg";
-import { getPokemonsType } from "../../redux/actions";
-import { useDispatch } from "react-redux";
 import validate from "../../components/Validate/Validate";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 const Create = () => {
-  const dispatch = useDispatch();
+
 
   const [statics, setStatics] = useState({
     name: "",
@@ -43,12 +41,6 @@ const Create = () => {
     }))
 
   };
-
-  useEffect(() => {
-    dispatch(getPokemonsType());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
 
   const handleSubmit = (event) => {
     event.preventDefault();

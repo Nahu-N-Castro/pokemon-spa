@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterPokemons, orderPokemons } from "../../redux/actions";
+import {
+  changeSourcePokemons,
+  filterPokemons,
+  orderPokemons,
+} from "../../redux/actions";
 import filterImage from "../../img/filter.svg";
 import style from "./Filter.module.css";
 
@@ -8,10 +12,14 @@ const FilterCards = () => {
   const dispatch = useDispatch();
 
   const [showFilters, setShowFilters] = useState(false);
-
   const [selectedOrder, setSelectedOrder] = useState("");
-
   const [selectedFilter, setSelectedFilter] = useState("");
+  const [selectedSource, setSelectedSource] = useState("API");
+
+  useEffect(() => {
+    dispatch(changeSourcePokemons(selectedSource));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedSource]);
 
   const handleOrder = (event) => {
     setSelectedOrder(event.target.value);
@@ -22,12 +30,16 @@ const FilterCards = () => {
   };
 
   const handleApply = () => {
-    dispatch(filterPokemons(selectedFilter));
     dispatch(orderPokemons(selectedOrder));
+    dispatch(filterPokemons(selectedFilter));
   };
 
   const toggleFilters = () => {
     setShowFilters(!showFilters);
+  };
+
+  const handleChangePokemons = (event) => {
+    setSelectedSource(event.target.value);
   };
 
   return (
@@ -44,7 +56,7 @@ const FilterCards = () => {
             <select onChange={handleOrder}>
               <option value="">Default</option>
               <option value="A">Ascending</option>
-              <option value="D">Descencing</option>
+              <option value="D">Descending</option>
             </select>
           </div>
 
@@ -80,6 +92,29 @@ const FilterCards = () => {
           </button>
         </div>
       )}
+
+      <div>
+        <form>
+          <label htmlFor="apiOption">API</label>
+          <input
+            type="radio"
+            id="apiOption"
+            name="option"
+            value="API"
+            checked={selectedSource === "API"}
+            onChange={handleChangePokemons}
+          />
+          <label htmlFor="dbOption">DB</label>
+          <input
+            type="radio"
+            id="dbOption"
+            name="option"
+            value="DB"
+            checked={selectedSource === "DB"}
+            onChange={handleChangePokemons}
+          />
+        </form>
+      </div>
     </div>
   );
 };

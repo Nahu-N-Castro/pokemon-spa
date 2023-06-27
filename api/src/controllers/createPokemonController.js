@@ -25,13 +25,20 @@ const createPokemon = async (
     weight,
     height,
     created,
-    type,
   });
-  const typeDB = await Type.findAll({ where: { name: type } });
 
+  // console.log(type)
+
+  // const idtype = 4
+
+  const typeDB = await Type.findAll({ where: { id: type }});
+  
   await pokemon.addType(typeDB);
-
+  // console.log(pokemon)
   return pokemon;
 };
+
+
+
 
 module.exports = { createPokemon };

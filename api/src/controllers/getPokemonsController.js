@@ -12,7 +12,6 @@ const dataCleaner = async (data) => {
     }
 
     return allPokemonsClean;
-
   } catch (error) {
     throw error;
   }
@@ -21,7 +20,7 @@ const dataCleaner = async (data) => {
 const getAllPokemons = async (req, res, next) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    
+
     const pageSize = parseInt(req.query.pageSize) || 12;
 
     if (isNaN(page) || isNaN(pageSize) || page <= 0 || pageSize <= 0) {
@@ -41,16 +40,8 @@ const getAllPokemons = async (req, res, next) => {
 
     const counterPokemonsDB = pokemonsDB.length;
 
-    let limit;
-    let offset;
-
-    if (page == 1) {
-      offset = (page - 1) * pageSize;
-      limit = pageSize - counterPokemonsDB;
-    } else {
-      offset = (page - 1) * pageSize - counterPokemonsDB;
-      limit = pageSize;
-    }
+    offset = (page - 1) * pageSize;
+    limit = pageSize;
 
     const URL = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
@@ -59,13 +50,14 @@ const getAllPokemons = async (req, res, next) => {
 
     const pokemonsApi = await dataCleaner(infoApiResponse);
 
-    let allPokemons;
-
-    if (page == 1) {
-      allPokemons = [...pokemonsDB, ...pokemonsApi];
-    } else {
-      allPokemons = [...pokemonsApi];
-    }
+    let allPokemons = [
+      ...pokemonsDB,
+      ...pokemonsApi,
+      {
+        countPokemonsDB: counterPokemonsDB,
+        countPokemonsAPI: response.data.count,
+      },
+    ];
 
     res.json(allPokemons);
   } catch (error) {

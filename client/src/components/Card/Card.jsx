@@ -3,7 +3,7 @@ import style from "./Card.module.css";
 import { Link } from "react-router-dom";
 
 const Card = ({ pokemon }) => {
-  const { id, name, type, image } = pokemon;
+  const { id, name, type, image, created } = pokemon;
 
   return (
     <div className={style.content}>
@@ -16,7 +16,10 @@ const Card = ({ pokemon }) => {
       </Link>
       <h1 className={style.id}>#{id}</h1>
       <div className={style.types}>
-        {type &&
+        { 
+          !created
+          ?
+          type &&
           type.map((typeValue, index) => (
             <h2
               className={`${style.type} ${
@@ -25,7 +28,9 @@ const Card = ({ pokemon }) => {
               key={index}>
               {typeValue}
             </h2>
-          ))}
+          )):""
+       
+          }
       </div>
     </div>
   );
