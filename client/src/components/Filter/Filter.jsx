@@ -55,8 +55,10 @@ const FilterCards = () => {
             <label>Order by:</label>
             <select onChange={handleOrder}>
               <option value="">Default</option>
-              <option value="A">Ascending</option>
-              <option value="D">Descending</option>
+              <option value="A">Asc - Name</option>
+              <option value="D">Desc - Name</option>
+              <option value="B">Asc - Attack</option>
+              <option value="E">Desc - Attack</option>
             </select>
           </div>
 
@@ -94,8 +96,8 @@ const FilterCards = () => {
       )}
 
       <div>
-        <form>
-          <label htmlFor="apiOption">API</label>
+        <form className={style.formSource}>
+          <label htmlFor="apiOption"className={style.radioButton}>API</label>
           <input
             type="radio"
             id="apiOption"
@@ -104,7 +106,7 @@ const FilterCards = () => {
             checked={selectedSource === "API"}
             onChange={handleChangePokemons}
           />
-          <label htmlFor="dbOption">DB</label>
+          <label htmlFor="dbOption" className={style.radioButton}>Data Base</label>
           <input
             type="radio"
             id="dbOption"

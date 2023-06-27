@@ -61,6 +61,14 @@ function rootReducer(state = initialState, action) {
             ? [...state.allPokemons]?.sort((a, b) =>
                 a.name && b.name ? b.name.localeCompare(a.name) : ""
               )
+            : action.payload === "B"
+            ? [...state.allPokemons]?.sort((a, b) =>
+                a.name && b.name ? b.attack - a.attack : ""
+              )
+            : action.payload === "E"
+            ? [...state.allPokemons]?.sort((a, b) =>
+                a.name && b.name ? a.attack - b.attack : ""
+              )
             : [...state.allPokemonsCopy],
       };
 

@@ -37,7 +37,7 @@
 
 
 .filters{
-  transform: translateY(30px);
+  transform: translate(350px, -20px);
   padding: 10px;
   border-radius: 6px;
   background-color: var(--background-primary);
@@ -67,3 +67,34 @@
 .apply:hover{
   background-color:var(--detail-tertiary);
 }
+
+
+.formSource {
+  margin-left: 15px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.radioButton input {
+  margin-right: 5px;
+  color: var(--detail-tertiary);
+  cursor: pointer;
+}
+
+.radioButton:hover {
+  color: black;
+}
+
+.radioButton input[type="radio"]:checked + .radioButton {
+  font-weight: bold;
+}
+
