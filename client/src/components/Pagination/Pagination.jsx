@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import style from "./Pagination.module.css";
 
+// eslint-disable-next-line react/prop-types
 const Pagination = ({ page, handlePageChange }) => {
   const totalPages = Math.ceil(1278 / 12);
 
@@ -25,6 +25,18 @@ const Pagination = ({ page, handlePageChange }) => {
       startPage = Math.max(1, endPage - maxButtons + 1);
     }
 
+    buttons.push(
+      <button
+        key="first"
+        className={`${style["pagination-button"]} ${
+          1 === page ? style.active : ""
+        }`}
+        onClick={() => handlePageClick(1)}
+      >
+        First
+      </button>
+    );
+
     for (let i = startPage; i <= endPage; i++) {
       buttons.push(
         <button
@@ -32,11 +44,24 @@ const Pagination = ({ page, handlePageChange }) => {
           className={`${style["pagination-button"]} ${
             i === page ? style.active : ""
           }`}
-          onClick={() => handlePageClick(i)}>
+          onClick={() => handlePageClick(i)}
+        >
           {i}
         </button>
       );
     }
+
+    buttons.push(
+      <button
+        key="last"
+        className={`${style["pagination-button"]} ${
+          totalPages === page ? style.active : ""
+        }`}
+        onClick={() => handlePageClick(totalPages)}
+      >
+        Last
+      </button>
+    );
 
     return buttons;
   };

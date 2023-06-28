@@ -14,22 +14,29 @@ const Card = ({ pokemon }) => {
         <img className={style.image} src={image} alt="" />
         <div className={style.circle}></div>
       </Link>
-      <h1 className={style.id}>#{id}</h1>
+      {!created ? <h1 className={style.id}>#{id}</h1> : ""}
       <div className={style.types}>
-        { 
-          !created
-          ?
-          type &&
+        {!created
+          ? type &&
+            type.map((typeValue, index) => (
+              <h2
+                className={`${style.type} ${
+                  style[`type-${typeValue.toLowerCase()}`]
+                }`}
+                key={index}>
+                {typeValue}
+              </h2>
+            ))
+          : type &&
           type.map((typeValue, index) => (
             <h2
               className={`${style.type} ${
-                style[`type-${typeValue.toLowerCase()}`]
+                style[`type-${typeValue.name.toLowerCase()}`]
               }`}
               key={index}>
-              {typeValue}
+              {typeValue.name.charAt(0).toUpperCase() + typeValue.name.slice(1)}
             </h2>
-          )):""
-       
+            ))
           }
       </div>
     </div>

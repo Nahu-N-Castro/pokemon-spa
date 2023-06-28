@@ -31,7 +31,7 @@ const createPokemon = async (
 
   // const idtype = 4
 
-  const typeDB = await Type.findAll({ where: { id: type }});
+  const typeDB = await Type.findAll({ where: { name: type }});
   
   await pokemon.addType(typeDB);
   // console.log(pokemon)

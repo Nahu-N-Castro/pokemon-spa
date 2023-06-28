@@ -8,7 +8,17 @@ const pokemonByName = async (name) => {
       where: {
         name: name.toLowerCase(),
       },
+      include: {
+        model: Type,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+        as: "type",
+      },
     });
+
+    console.log(pokemonsDB)
 
     if (pokemonsDB == null) {
       const responseAPI = (
@@ -26,4 +36,4 @@ const pokemonByName = async (name) => {
   }
 };
 
-module.exports = pokemonByName;
+module.exports = pokemonByName; 

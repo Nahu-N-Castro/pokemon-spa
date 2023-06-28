@@ -47,6 +47,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allPokemons: [],
+        allPokemonsCopy: [],
       };
 
     case ORDER_POKEMONS:

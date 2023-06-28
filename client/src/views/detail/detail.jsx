@@ -39,7 +39,10 @@ const Detail = () => {
         />
         <div className={style.about}>
           <h1>About</h1>
-          <h2>{pokemon.name && pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
+          <h2>
+            {pokemon.name &&
+              pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+          </h2>
         </div>
         <div className={style.statics}>
           <div className={style.statics1}>
@@ -73,8 +76,15 @@ const Detail = () => {
             <h1>{pokemon.weight && pokemon.weight}</h1>
           </div>
           <div className={style.statics2}>
-            {pokemon.type &&
-              pokemon.type.map((type, index) => <h1 key={index}> {type} </h1>)}
+            {!pokemon.created
+              ? pokemon.type &&
+                pokemon.type.map((type, index) => <h1 key={index}> {type} </h1>)
+              : pokemon.type.map((typeValue, index) => (
+                  <h1 className={typeValue} key={index}>
+                    {typeValue.name.charAt(0).toUpperCase() +
+                      typeValue.name.slice(1)}
+                  </h1>
+                ))}
           </div>
         </div>
       </div>

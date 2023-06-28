@@ -55,10 +55,10 @@ const FilterCards = () => {
             <label>Order by:</label>
             <select onChange={handleOrder}>
               <option value="">Default</option>
-              <option value="A">Asc - Name</option>
-              <option value="D">Desc - Name</option>
-              <option value="B">Asc - Attack</option>
-              <option value="E">Desc - Attack</option>
+              <option value="A">A-Z | Name</option>
+              <option value="D">Z-A | Name</option>
+              <option value="B"> + | Attack</option>
+              <option value="E"> - | Attack</option>
             </select>
           </div>
 

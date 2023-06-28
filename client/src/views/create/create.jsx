@@ -54,7 +54,7 @@ const Create = () => {
       speed: statics.speed,
       weight: statics.weight,
       height: statics.height,
-      Type: {name: `${statics.type}`},
+      type: statics.type,
       created:true
     };
   
