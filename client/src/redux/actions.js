@@ -62,7 +62,7 @@ export function getPokemonFinded(value) {
     if (isNaN(value)) {
       response = await axios(`http://localhost:3001/pokemons?name=${value}`);
     } else {
-      response = await axios(`  http://localhost:3001/pokemons/${value}`);
+      response = await axios(`http://localhost:3001/pokemons/${value}`);
     }
     return dispatch({
       type: "GET_POKEMON_FINDED",
@@ -70,6 +70,42 @@ export function getPokemonFinded(value) {
     });
   };
 }
+
+
+
+
+// --- action con promesa !! sin axios ni async/await
+
+
+// export function getPokemonFinded(value) {
+//   return function (dispatch) {
+//     let url;
+//     if (isNaN(value)) {
+//       url = `http://localhost:3001/pokemons?name=${value}`;
+
+//     } else {
+//       console.log(value)
+//       url = `http://localhost:3001/pokemons/${value}`;
+//     }
+    
+//     return fetch(url)
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error('Error en la solicitud HTTP');
+//         }
+//         return response.json();
+//       })
+//       .then(data => {
+//         dispatch({
+//           type: "GET_POKEMON_FINDED",
+//           payload: data,
+//         });
+//       })
+//       .catch(error => {
+//         console.error("Error al obtener el Pokémon:", error);
+//       });
+//   };
+// }
 
 export const filterPokemons = (type) => {
   return {

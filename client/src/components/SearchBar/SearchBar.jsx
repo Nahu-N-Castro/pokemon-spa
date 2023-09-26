@@ -15,6 +15,7 @@ const SearchBar=()=>{
     
     function handleOnSubmit(event){ 
         event.preventDefault()
+        console.log(searchString)
         dispatch(getPokemonFinded(searchString))
     }
 

@@ -2,15 +2,25 @@ const {
   getPokemonByParams,
 } = require("../controllers/getPokemonByParamsController");
 
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 
 const getDetailHandler = async (req, res) => {
   const { id } = req.params;
 
   try {
     if (id.length > 10) {
-      const pokemonDb = await Pokemon.findByPk(id);
-      res.status(200).json(pokemonDb);
+      const pokemonDB = await Pokemon.findByPk(id, {
+        include: [
+          {
+            model: Type, 
+            attributes: ["name"], 
+            through: { attributes: [] }, // no incluyo atributos adicionales de la tabla de asociación en los resultados
+            as: "type", 
+          },
+        ],
+      });
+      
+      res.status(200).json(pokemonDB);
     } else {
       const pokemonId = await getPokemonByParams(id);
       res.status(200).json(pokemonId);

@@ -30,9 +30,9 @@ const getAllPokemons = async (req, res, next) => {
     const pokemonsDB = await Pokemon.findAll({
       include: {
         model: Type,
-        attributes: ["name"],
+        attributes: ["name"], 
         through: {
-          attributes: [],
+          attributes: [], // No incluyo atributos adicionales 
         },
         as: "type",
       },

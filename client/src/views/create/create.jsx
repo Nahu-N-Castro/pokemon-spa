@@ -13,7 +13,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 const Create = () => {
-
+  const [showAlert, setShowAlert] = useState(false);
 
   const [statics, setStatics] = useState({
     name: "",
@@ -27,24 +27,25 @@ const Create = () => {
     type: "",
   });
 
-  const [errors, setErrors] = useState({error:"error"})
+  const [errors, setErrors] = useState({ error: "error" });
 
   const handleStaticsChange = (event) => {
     setStatics({
       ...statics,
       [event.target.name]: event.target.value,
     });
-    setErrors(validate({
-      ...statics,
-      [event.target.name]: event.target.value,
-
-    }))
-
+    setErrors(
+      validate({
+        ...statics,
+        [event.target.name]: event.target.value,
+      })
+    );
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+    setShowAlert(true);
+
     const formData = {
       name: statics.name,
       image: statics.image,
@@ -55,16 +56,16 @@ const Create = () => {
       weight: statics.weight,
       height: statics.height,
       type: statics.type,
-      created:true
+      created: true,
     };
-  
-    axios.post("http://localhost:3001/pokemons", formData)
+
+    axios
+      .post("http://localhost:3001/pokemons", formData)
       .then((response) => {
-        console.log("exito"+ response)
+        console.log("exito" + response);
       })
       .catch((error) => {
-        console.log(error)
-        
+        console.log(error);
       });
   };
 
@@ -81,7 +82,7 @@ const Create = () => {
               name="name"
               value={statics.name}
               onChange={handleStaticsChange}></input>
-              {errors.name && <h5 className={style.errmsg} >{errors.name}</h5>}
+            {errors.name && <h5 className={style.errmsg}>{errors.name}</h5>}
           </div>
 
           <div className={style.inputbox}>
@@ -90,7 +91,7 @@ const Create = () => {
               name="image"
               value={statics.image}
               onChange={handleStaticsChange}></input>
-              {errors.image && <h5 className={style.errmsg}>{errors.image}</h5>}
+            {errors.image && <h5 className={style.errmsg}>{errors.image}</h5>}
           </div>
 
           <div className={style.inputbox}>
@@ -212,9 +213,13 @@ const Create = () => {
           </div>
           {errors.statics && <h5 className={style.errmsg}>{errors.statics}</h5>}
 
-          <button className={style.button} type="submit" disabled={Object.values(errors).some((error) => error !== "")}>
+          <button
+            className={style.button}
+            type="submit"
+            disabled={Object.values(errors).some((error) => error !== "")}>
             CREATE POKEMON
           </button>
+          {showAlert && <div className="alert">Pokémon Created!</div>}
         </form>
       </div>
 
@@ -269,7 +274,9 @@ const Create = () => {
             </div>
 
             <div className={style.statics2}>
-              <h1>{statics.type.charAt(0).toUpperCase() + statics.type.slice(1)}</h1>
+              <h1>
+                {statics.type.charAt(0).toUpperCase() + statics.type.slice(1)}
+              </h1>
             </div>
           </div>
         </div>
